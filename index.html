@@ -33,6 +33,64 @@
       background-color: #4338ca;
     }
   </style>
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(102957446, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/102957446" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+  
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Функция получения куки
+    function getCookie(name) {
+        const matches = document.cookie.match(
+            new RegExp('(?:^|; )' + name.replace(/([$?*|{}()[\]\\/+^])/g, '\\$1') + '=([^;]*)')
+        );
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    // 2. Обработчик кликов
+    document.addEventListener('click', function(event) {
+        const link = event.target.closest('a');
+        if (!link) return;
+
+        try {
+            const url = new URL(link.href);
+            if (!url.hostname.includes('paywall.pw')) return;
+        } catch (e) {
+            return;
+        }
+
+        const ym_uid = getCookie('_ym_uid');
+        if (!ym_uid) {
+            console.warn('ym_uid not found');
+            return;
+        }
+
+        const url = new URL(link.href);
+        url.searchParams.set('ym_uid', ym_uid);
+        event.preventDefault();
+
+        if (link.target === '_blank') {
+            window.open(url.toString(), '_blank');
+        } else {
+            location.href = url.toString();
+        }
+    }, true);
+});
+</script>
 </head>
 <body>
   <a href="https://paywall.pw/viz_test" class="subscribe-button">
